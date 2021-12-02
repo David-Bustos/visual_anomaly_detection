@@ -41,10 +41,10 @@ def main():
 
 
 def predict(image):
-    classifier_model = "VADS_model.h5"
+    classifier_model = "model.h5"
     #IMAGE_SHAPE = (224, 224,3)
     model = load_model(classifier_model, compile=False, custom_objects={'KerasLayer': hub.KerasLayer})
-    test_image = image.resize((224,224))
+    test_image = image.resize((160,160))
     test_image = preprocessing.image.img_to_array(test_image)
     test_image = test_image / 255.0
     test_image = np.expand_dims(test_image, axis=0)
